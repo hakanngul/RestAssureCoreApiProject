@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 
 public class JunitAnnotation {
 
+
     public void test() {
         //AssertionHandler.validateStatusCode(Response, 200);
 

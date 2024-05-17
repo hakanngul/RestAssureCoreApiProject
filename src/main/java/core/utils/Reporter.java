@@ -1,11 +1,13 @@
 package core.utils;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
+import lombok.Getter;
 
 public class Reporter {
+    // Public method to provide access to the instance
+    @Getter
+    private static final Reporter instance = new Reporter();
     private static final ExtentReports extent;
     private static ExtentTest test;
 
@@ -14,6 +16,9 @@ public class Reporter {
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
     }
+
+    // Private constructor to prevent instantiation
+    private Reporter() {}
 
     public void startTest(String testName) {
         test = extent.createTest(testName);

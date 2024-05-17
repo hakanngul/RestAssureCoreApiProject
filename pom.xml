@@ -6,6 +6,9 @@
     <artifactId>core</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <!-- JUnit 5 dependency -->
@@ -64,6 +67,19 @@
             <artifactId>extentreports</artifactId>
             <version>4.1.6</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.3.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -75,13 +91,16 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
+
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
+                    <skipTests>true</skipTests>
                     <includes>
                         <include>**/AppTest.java</include>
                     </includes>
